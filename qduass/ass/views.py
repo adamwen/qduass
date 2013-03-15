@@ -37,8 +37,8 @@ def authorization(request):
                 openkey=openkey,
                 accesstoken=params['access_token'],
                 expires_in=params['expires_in'],
-                refresh_key=params['refresh_key'],
-                nickname=params['nickname'],
+                refresh_token=params['refresh_token'],
+                nickname=params['nick'],
                 name=params['name']
                 )
     user.save()
