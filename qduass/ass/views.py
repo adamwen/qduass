@@ -53,7 +53,7 @@ def authorization(request):
 def send(reqeust):
 
     user = User.objects.all()[0]
-    microblog = Microblog(APP_key, user.accesstoken, user.openid)
+    microblog = Microblog(APP_KEY, user.accesstoken, user.openid)
 
     text = str(time.time())
     microblog.send(text, '184.82.244.128')
