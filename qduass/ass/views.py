@@ -58,6 +58,6 @@ def send(reqeust):
     text = str(time.time())
     microblog.send(text, '184.82.244.128')
 
-    return Response('success!')
+    return HttpResponse(text)
     
 
