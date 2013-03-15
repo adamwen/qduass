@@ -33,13 +33,13 @@ def authorization(request):
     response = urllib2.urlopen(url).read()
     params = filter_accesstoken(response)
 
-    user = User(openid, 
-                openkey,
-                params['accesstoken'],
-                params['expires_in'],
-                params['refresh_key'],
-                params['nickname'],
-                params['name']
+    user = User(openid=openid, 
+                openkey=openkey,
+                accesstoken=params['accesstoken'],
+                expires_in=params['expires_in'],
+                refresh_key=params['refresh_key'],
+                nickname=params['nickname'],
+                name=params['name']
                 )
     user.save()
 
