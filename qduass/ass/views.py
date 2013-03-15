@@ -1,16 +1,18 @@
 # Create your views here.
 from django.http import HttpResponse, HttpResponseRedirect
-from url import ACCESSTOKEN_REQ_URL, \
+from ass.url import ACCESSTOKEN_REQ_URL, \
                 AUTH_URL,\
                 CODE_REQ_URL,\
                 REFRESH_ACCESSTOKEN\
 
-from key import APP_KEY, APP_SECRET
+from ass.key import APP_KEY, APP_SECRET
 
 from urllib import quote
 import urllib2
 
 from utils import filter_accesstoken
+
+from ass.models import User
 
 def index(request):
     valid_url = CODE_REQ_URL.format(APP_KEY, AUTH_URL)
