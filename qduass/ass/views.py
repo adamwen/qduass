@@ -33,4 +33,4 @@ def authorization(request):
     response = urllib2.urlopen(url).read()
     print response
 
-    return HttpResponse()
+    return HttpResponse('You Got It')
