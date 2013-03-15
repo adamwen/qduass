@@ -13,6 +13,9 @@ import urllib2
 from utils import filter_accesstoken
 
 from ass.models import User
+from ass.tencent import Microblog
+
+import time
 
 def index(request):
     valid_url = CODE_REQ_URL.format(APP_KEY, AUTH_URL)
@@ -46,4 +49,15 @@ def authorization(request):
     return HttpResponse('You Got It')
 
 
+
+def send(reqeust):
+
+    user = User.objects.all()[0]
+    microblog = Microblog(APP_key, user.accesstoken, user.openid)
+
+    text = str(time.time())
+    microblog.send(text, '184.82.244.128')
+
+    return Response('success!')
+    
 
