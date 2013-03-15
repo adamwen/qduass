@@ -7,7 +7,6 @@ class Microblog:
         self.access_token = access_token
         self.openid = openid
 
-    @staticmethod
     def send(self, text, ip):
         data = TEXT.format(text, self.app_key, self.access_token, self.openid, ip)
         url = TWEET_SEND_URL
