@@ -29,7 +29,6 @@ def authorization(request):
     print openkey
 
     url = ACCESSTOKEN_REQ_URL.format(APP_KEY, APP_SECRET, AUTH_URL, code)
-    url = quote(url)
 
     response = urllib2.urlopen(url).read()
 
