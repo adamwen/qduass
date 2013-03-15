@@ -37,7 +37,7 @@ def authorization(request):
                 openkey=openkey,
                 accesstoken=params['access_token'],
                 expires_in=params['expires_in'],
-                refresh_token=params['refresh_token'],
+                refresh_key=params['refresh_token'],
                 nickname=params['nick'],
                 name=params['name']
                 )
