@@ -1,6 +1,9 @@
 from urlparse import urlparse, parse_qs
 from url import AUTH_URL
 
+import random
+import feedparser
+
 def filter_accesstoken(string):
     string = AUTH_URL + '?' +string
     params = {}
@@ -21,4 +24,14 @@ if __name__ == '__main__':
     print a
 
 
+
+def get_news(rss_url):
+    d = feedparser.parse(rss_url)
+
+    num = random.randint(0, len(d.entries))
+
+    return d.entries[num].title
+
+
+    
 

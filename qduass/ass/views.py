@@ -3,14 +3,16 @@ from django.http import HttpResponse, HttpResponseRedirect
 from ass.url import ACCESSTOKEN_REQ_URL, \
                 AUTH_URL,\
                 CODE_REQ_URL,\
-                REFRESH_ACCESSTOKEN\
+                REFRESH_ACCESSTOKEN,\
+                XINHUA_RSS
+                
 
 from ass.key import APP_KEY, APP_SECRET
 
 from urllib import quote
 import urllib2
 
-from utils import filter_accesstoken
+from utils import filter_accesstoken, get_news
 
 from ass.models import User
 from ass.tencent import Microblog
@@ -55,7 +57,7 @@ def send(reqeust):
     user = User.objects.all()[0]
     microblog = Microblog(APP_KEY, user.accesstoken, user.openid)
 
-    text = str(time.time())
+    text = get_news(XINHUA_RSS)
     microblog.send(text, '184.82.244.128')
 
     return HttpResponse(text)
