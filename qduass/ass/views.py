@@ -30,7 +30,6 @@ def authorization(request):
 
     url = ACCESSTOKEN_REQ_URL.format(APP_KEY, APP_SECRET, AUTH_URL, code)
     url = quote(url)
-    print url
 
     response = urllib2.urlopen(url).read()
 
