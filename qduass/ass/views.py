@@ -1,7 +1,7 @@
 # Create your views here.
 from django.http import HttpResponse, HttpResponseRedirect
 from url import ACCESSTOKEN_REQ_URL,
-                MY_URL,
+                AUTH_URL,
                 CODE_REQ_URL,
                 REFRESH_ACCESSTOKEN
 
@@ -10,7 +10,7 @@ from key import APP_KEY, APP_SECRET
 from urllib2
 
 def index(request):
-    valid_url = CODE_REQ_URL.format(APP_KEY, MY_URL)
+    valid_url = CODE_REQ_URL.format(APP_KEY, AUTH_URL)
 
     print valid_url
     
@@ -31,7 +31,7 @@ def authorization(request):
     print openid
     print openkey
 
-    url = ACCESSTOKEN_REQ_URL.format(APP_KEY, APP_SECRET, MY_URL, code)
+    url = ACCESSTOKEN_REQ_URL.format(APP_KEY, APP_SECRET, AUTH_URL, code)
 
     response = urllib2.urlopen(url).read()
 
