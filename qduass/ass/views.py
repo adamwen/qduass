@@ -10,6 +10,8 @@ from key import APP_KEY, APP_SECRET
 from urllib import quote
 import urllib2
 
+from utils import filter_accesstoken
+
 def index(request):
     valid_url = CODE_REQ_URL.format(APP_KEY, AUTH_URL)
 
@@ -24,13 +26,22 @@ def authorization(request):
         openid =  request.GET['openid']
         openkey =  request.GET['openkey']
 
-    print code
-    print openid
-    print openkey
-
     url = ACCESSTOKEN_REQ_URL.format(APP_KEY, APP_SECRET, AUTH_URL, code)
 
     response = urllib2.urlopen(url).read()
-    print response
+    params = filter_accesstoken(response)
+
+    user = User(openid, 
+                openkey,
+                params['accesstoken'],
+                params['expires_in'],
+                params['refresh_key'],
+                params['nickname'],
+                params['name']
+                )
+    user.save()
 
     return HttpResponse('You Got It')
+
+
+
