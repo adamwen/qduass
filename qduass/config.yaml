@@ -4,3 +4,14 @@ version: 1
 braries:
 - name: "django"
   version: "1.4"
+
+cron:
+- description: send the tweet at 9:00am everyday
+  url: /send
+  schedule: "0 9 * * *"
+
+
+cron:
+- description: Refresh the access token in every Monday
+  url: /refresh_token
+  schedule: "0 9 * * 1"

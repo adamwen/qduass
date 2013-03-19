@@ -13,7 +13,7 @@ class Microblog:
         url = TWEET_SEND_URL
         headers = HEADERS
 
-        response = requests.post(url, data=data, headers=headers)
+        response = requests.post(url, data=data, headers=headers, verify=False)
 
         return response.ok
 

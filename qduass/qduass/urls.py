@@ -9,6 +9,7 @@ urlpatterns = patterns('',
      url(r'^auth$', 'ass.views.authorization', name='auth'),
      url(r'^index$', 'ass.views.index', name='index'),
      url(r'^send$', 'ass.views.send', name='send'),
+     url(r'^refresh_accesstoken', 'ass.views.refresh_accesstoken', name='refresh_accesstoken'),
     # url(r'^qduass/', include('qduass.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

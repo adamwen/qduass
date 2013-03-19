@@ -9,14 +9,13 @@ from ass.settings import ACCESSTOKEN_REQ_URL, \
                 APP_KEY, \
                 APP_SECRET
 
-from urllib import quote
-import urllib2
-
-from utils import filter_accesstoken, get_news
 
 from ass.models import User
 from ass.tencent import Microblog
+from ass.utils import filter_accesstoken, get_news
 
+
+import urllib2
 import time
 
 def index(request):
@@ -62,4 +61,24 @@ def send(reqeust):
 
     return HttpResponse(text)
     
+
+def refresh_accesstoken(request):
+    user = User.objects.all()[0]
+
+    client_id = APP_KEY
+    grant_type = 'refresh_token' 
+    refresh_token = user.refresh_key
+
+    url = REFRESH_ACCESSTOKEN.format(client_id, grant_type, refresh_token)
+
+    response = urllib2.urlopen(url).read()
+    params = filter_accesstoken(response)
+
+    user.accesstoken = params['access_token']
+    user.expires_in = params['expires_in']
+    user.refresh_key = params['refresh_token']
+
+    user.save()
+
+    return HttpResponse()
 
