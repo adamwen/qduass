@@ -1,0 +1,6 @@
+name: helloworld
+version: 1
+
+braries:
+- name: "django"
+  version: "1.4"

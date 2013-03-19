@@ -8,7 +8,6 @@ class Microblog:
         self.openid = openid
 
     def send(self, text, ip):
-        text = str(text)
         data = TEXT.format(text, self.app_key, self.access_token, self.openid, ip)
         url = TWEET_SEND_URL
         headers = HEADERS

@@ -3,7 +3,7 @@ SALT_STR = 'hello'
 APP_KEY = '801326924'
 APP_SECRET = 'd28a69bf9e6e9509730e55c5aae71421'
 
-AUTH_URL = 'http://www.darkof.com:4321/auth'
+AUTH_URL = 'http://www.darkof.com:8080/auth'
 
 CODE_REQ_URL = 'https://open.t.qq.com/cgi-bin/oauth2/authorize?client_id={0}&response_type=code&redirect_uri={1}'
 	
