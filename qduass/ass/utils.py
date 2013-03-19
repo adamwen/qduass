@@ -1,5 +1,5 @@
 from urlparse import urlparse, parse_qs
-from url import AUTH_URL
+from settings import AUTH_URL
 
 import random
 import feedparser

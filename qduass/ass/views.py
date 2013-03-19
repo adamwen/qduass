@@ -1,13 +1,12 @@
 # Create your views here.
 from django.http import HttpResponse, HttpResponseRedirect
-from ass.url import ACCESSTOKEN_REQ_URL, \
+from ass.settings import ACCESSTOKEN_REQ_URL, \
                 AUTH_URL,\
                 CODE_REQ_URL,\
                 REFRESH_ACCESSTOKEN,\
-                XINHUA_RSS
-                
-
-from ass.key import APP_KEY, APP_SECRET
+                XINHUA_RSS,\
+                APP_KEY, \
+                APP_SECRET
 
 from urllib import quote
 import urllib2
