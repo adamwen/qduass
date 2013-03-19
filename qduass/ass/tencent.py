@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from tencent_settings import TEXT, HEADERS, TWEET_SEND_URL
 import requests
 

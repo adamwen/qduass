@@ -1,3 +1,5 @@
+# -*- coding:utf-8 -*-
+
 SALT_STR = 'hello'
 
 APP_KEY = '801326924'

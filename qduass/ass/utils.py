@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from urlparse import urlparse, parse_qs
 from settings import AUTH_URL
 
