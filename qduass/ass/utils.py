@@ -32,7 +32,7 @@ def get_news(rss_url):
 
     num = random.randint(0, len(d.entries))
 
-    return d.entries[num].title
+    return d.entries[num].title.encode('utf-8')
 
 
     
